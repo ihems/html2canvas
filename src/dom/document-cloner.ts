@@ -571,32 +571,6 @@ export const copyCSSStyles = <T extends HTMLElement | SVGElement>(style: CSSStyl
     return target;
 };
 
-const serializeDoctype = (doctype?: DocumentType | null): string => {
-    let str = '';
-    if (doctype) {
-        str += '<!DOCTYPE ';
-        if (doctype.name) {
-            str += doctype.name;
-        }
-
-        if (doctype.internalSubset) {
-            str += doctype.internalSubset;
-        }
-
-        if (doctype.publicId) {
-            str += `"${doctype.publicId}"`;
-        }
-
-        if (doctype.systemId) {
-            str += `"${doctype.systemId}"`;
-        }
-
-        str += '>';
-    }
-
-    return str;
-};
-
 const restoreOwnerScroll = (ownerDocument: Document | null, x: number, y: number) => {
     if (
         ownerDocument &&
